@@ -24,15 +24,32 @@ class NewsAgents():
         return Agent(
             role='News Scraper Agent',
             goal="""Collect news data from various sources like news websites, social media, and official press releases. 
-            Gather the latest news articles, tweets, and other relevant information using web scraping and APIs.""",
+            Gather the latest news articles, tweets, and other relevant information.""",
             backstory="""You are an expert at collecting up-to-date and relevant news from a variety of sources efficiently and effectively.""",
             llm=GROQ_LLM,
             verbose=True,
             allow_delegation=False,
             max_iter=5,
             memory=True,
-            tools=[web_scraping_tool, api_tool],
+            tools=[search_tool],
             step_callback=lambda x: print_agent_output(x, "News Scraper Agent"),
+        )
+    
+    def search_news_scraper_agent(self):
+        return Agent(
+            role='News Scraper Agent',
+            goal="""Take in a news from the user. \
+                Collect all the data on that particular news from various sources like news websites, social media, and official press releases . \
+                Try to keep the sources trusted and reliablefrom where the news is being scraped.""",
+            backstory="""You are an expert at collecting up-to-date and relevant data and information about a particular news from a \
+                variety of sources efficiently and effectively.""",
+            llm=GROQ_LLM,
+            verbose=True,
+            allow_delegation=False,
+            max_iter=5,
+            memory=True,
+            tools=[search_tool],
+            step_callback=lambda x: print_agent_output(x, "S_News Scraper Agent"),
         )
 
     def make_event_detection_agent(self):
@@ -63,6 +80,23 @@ class NewsAgents():
             tools=[search_tool],
             step_callback=lambda x: print_agent_output(x, "Fact-Checking Agent"),
         )
+
+    def Search_make_fact_checking_agent(self):
+        return Agent(
+            role='Fact-Checking Agent',
+            goal="""Verify the accuracy of the news by cross-referencing with reliable sources. \
+                Search reputable databases, official statements, and trusted news sources to confirm the facts in the detected news events.""",
+            backstory="""You excel at cross-referencing information and confirming the accuracy of news events by using reliable and \
+                trusted sources.""",
+            llm=GROQ_LLM,
+            verbose=True,
+            allow_delegation=False,
+            max_iter=5,
+            memory=True,
+            tools=[search_tool],
+            step_callback=lambda x: print_agent_output(x, "S_Fact-Checking Agent"),
+        )
+
     def make_content_generation_agent(self):
         return Agent(
             role='Content Generation Agent',

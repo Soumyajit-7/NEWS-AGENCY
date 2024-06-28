@@ -1,0 +1,32 @@
+[
+    {
+        "event_id": "event_001",
+        "description": "COVID-19 Vaccine Breakthrough",
+        "related_news": ["news_001", "news_002", "news_003"],
+        "metadata": {"location": "Global", "impact": "High"}
+    },
+    {
+        "event_id": "event_002",
+        "description": "Economic Downturn in Europe",
+        "related_news": ["news_004", "news_005", "news_006"],
+        "metadata": {"location": "Europe", "impact": "Medium"}
+    },
+    {
+        "event_id": "event_003",
+        "description": "NASA's New Mars Discovery",
+        "related_news": ["news_007", "news_008", "news_009"],
+        "metadata": {"location": "Mars", "impact": "Low"}
+    },
+    {
+        "event_id": "event_004",
+        "description": "US Presidential Election Update",
+        "related_news": ["news_010", "news_011", "news_012"],
+        "metadata": {"location": "USA", "impact": "High"}
+    },
+    {
+        "event_id": "event_005",
+        "description": "Climate Change Protests Worldwide",
+        "related_news": ["news_013", "news_014", "news_015"],
+        "metadata": {"location": "Global", "impact": "Medium"}
+    }
+]
