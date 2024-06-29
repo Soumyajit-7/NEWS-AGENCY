@@ -17,8 +17,10 @@ from crewai_tools import (
     WebsiteSearchTool
 )
 
-#search_tool = DuckDuckGoSearchRun()
+# search_tool = DuckDuckGoSearchRun()
 search_tool = SerperDevTool()
+
+
 class NewsAgents():
     def make_news_scraper_agent(self):
         return Agent(
@@ -32,9 +34,10 @@ class NewsAgents():
             max_iter=5,
             memory=True,
             tools=[search_tool],
-            step_callback=lambda x: print_agent_output(x, "News Scraper Agent"),
+            step_callback=lambda x: print_agent_output(
+                x, "News Scraper Agent"),
         )
-    
+
     def search_news_scraper_agent(self):
         return Agent(
             role='News Scraper Agent',
@@ -49,7 +52,8 @@ class NewsAgents():
             max_iter=5,
             memory=True,
             tools=[search_tool],
-            step_callback=lambda x: print_agent_output(x, "S_News Scraper Agent"),
+            step_callback=lambda x: print_agent_output(
+                x, "S_News Scraper Agent"),
         )
 
     def make_event_detection_agent(self):
@@ -63,7 +67,8 @@ class NewsAgents():
             allow_delegation=False,
             max_iter=5,
             memory=True,
-            step_callback=lambda x: print_agent_output(x, "Event Detection Agent"),
+            step_callback=lambda x: print_agent_output(
+                x, "Event Detection Agent"),
         )
 
     def make_fact_checking_agent(self):
@@ -78,7 +83,8 @@ class NewsAgents():
             max_iter=5,
             memory=True,
             tools=[search_tool],
-            step_callback=lambda x: print_agent_output(x, "Fact-Checking Agent"),
+            step_callback=lambda x: print_agent_output(
+                x, "Fact-Checking Agent"),
         )
 
     def Search_make_fact_checking_agent(self):
@@ -95,7 +101,8 @@ class NewsAgents():
             max_iter=5,
             memory=True,
             tools=[search_tool],
-            step_callback=lambda x: print_agent_output(x, "S_Fact-Checking Agent"),
+            step_callback=lambda x: print_agent_output(
+                x, "S_Fact-Checking Agent"),
         )
 
     def make_content_generation_agent(self):
@@ -112,8 +119,10 @@ class NewsAgents():
             verbose=True,
             allow_delegation=False,
             max_iter=5,
+            tools=[search_tool],
             memory=True,
-            step_callback=lambda x: print_agent_output(x, "Content Generation Agent"),
+            step_callback=lambda x: print_agent_output(
+                x, "Content Generation Agent"),
         )
 
     def make_editor_agent(self):
@@ -129,4 +138,3 @@ class NewsAgents():
             memory=True,
             step_callback=lambda x: print_agent_output(x, "Editor Agent"),
         )
-

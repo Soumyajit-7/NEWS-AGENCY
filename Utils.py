@@ -1,55 +1,63 @@
+from langchain.schema import AgentFinish
+from typing import Union, List, Tuple, Dict
+import json
 import os
 from dotenv import load_dotenv
 import requests
 from langchain.tools import tool
-#os.environ["GROQ_API_KEY"] = "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"
-#api_key=os.getenv["GROQ_API_KEY"]
+# os.environ["GROQ_API_KEY"] = "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"
+# api_key=os.getenv["GROQ_API_KEY"]
 import json  # Import the JSON module to parse JSON strings
 from langchain_core.agents import AgentFinish
 
 from langchain_groq import ChatGroq
 
-#load_dotenv()
+# load_dotenv()
 
 GROQ_LLM = ChatGroq(
-            api_key=os.getenv("GROQ_API_KEY"),
-            model="llama3-70b-8192"
-        )
+    api_key=os.getenv("GROQ_API_KEY"),
+    model="llama3-70b-8192"
+)
 
-agent_finishes  = []
-
-import json
-from typing import Union, List, Tuple, Dict
-from langchain.schema import AgentFinish
+agent_finishes = []
 
 call_number = 0
+agent_finishes = []
+
 
 def print_agent_output(agent_output: Union[str, List[Tuple[Dict, str]], AgentFinish], agent_name: str = 'Generic call'):
     global call_number  # Declare call_number as a global variable
     call_number += 1
-    with open("crew_callback_logs.txt", "a") as log_file:
+    with open("crew_callback_logs.txt", "a", encoding="utf-8") as log_file:
         # Try to parse the output if it is a JSON string
         if isinstance(agent_output, str):
             try:
-                agent_output = json.loads(agent_output)  # Attempt to parse the JSON string
+                # Attempt to parse the JSON string
+                agent_output = json.loads(agent_output)
             except json.JSONDecodeError:
                 pass  # If there's an error, leave agent_output as is
 
         # Check if the output is a list of tuples as in the first case
         if isinstance(agent_output, list) and all(isinstance(item, tuple) for item in agent_output):
-            print(f"-{call_number}----Dict------------------------------------------", file=log_file)
+            print(
+                f"-{call_number}----Dict------------------------------------------", file=log_file)
             for action, description in agent_output:
                 # Print attributes based on assumed structure
                 print(f"Agent Name: {agent_name}", file=log_file)
-                print(f"Tool used: {getattr(action, 'tool', 'Unknown')}", file=log_file)
-                print(f"Tool input: {getattr(action, 'tool_input', 'Unknown')}", file=log_file)
-                print(f"Action log: {getattr(action, 'log', 'Unknown')}", file=log_file)
+                print(
+                    f"Tool used: {getattr(action, 'tool', 'Unknown')}", file=log_file)
+                print(
+                    f"Tool input: {getattr(action, 'tool_input', 'Unknown')}", file=log_file)
+                print(
+                    f"Action log: {getattr(action, 'log', 'Unknown')}", file=log_file)
                 print(f"Description: {description}", file=log_file)
-                print("--------------------------------------------------", file=log_file)
+                print(
+                    "--------------------------------------------------", file=log_file)
 
         # Check if the output is a dictionary as in the second case
         elif isinstance(agent_output, AgentFinish):
-            print(f"-{call_number}----AgentFinish---------------------------------------", file=log_file)
+            print(
+                f"-{call_number}----AgentFinish---------------------------------------", file=log_file)
             print(f"Agent Name: {agent_name}", file=log_file)
             agent_finishes.append(agent_output)
             # Extracting 'output' and 'log' from the nested 'return_values' if they exist

@@ -13,28 +13,25 @@ from crewai_tools import (
     WebsiteSearchTool
 )
 
+
 class NEWSAGENCY:
     def __init__(self):
-        
-        
-        
+
         self.groq_llm = ChatGroq(
             api_key=os.getenv("GROQ_API_KEY"),
             model="llama3-70b-8192"
         )
-        
-        
+
         from Agents import NewsAgents
         from Tasks import NewsAgencyTasks
-        
+
         self.agents = NewsAgents()
         self.tasks = NewsAgencyTasks()
         self.search_tool = SerperDevTool()
-        
-        
+
         self.crew = None
-    
-    def run(self, headline : str):
+
+    def run(self, headline: str):
         # agents
         # news_scraper_agent = self.agents.make_news_scraper_agent()
         # event_detection_agent = self.agents.make_event_detection_agent()
@@ -43,8 +40,7 @@ class NEWSAGENCY:
         editor_agent = self.agents.make_editor_agent()
         S_news_scraper_agent = self.agents.search_news_scraper_agent()
         S_news_fact_checker_agent = self.agents.Search_make_fact_checking_agent()
-        
-        
+
         # tasks
         # scraping_task = self.tasks.scrape_news()
         # detection_task = self.tasks.detect_events()
@@ -54,31 +50,31 @@ class NEWSAGENCY:
         headline_scrape_task = self.tasks.headline_scrape_news(headline)
         s_fact_chack_task = self.tasks.S_fact_check_events(headline)
 
-        
         # crew with agents and tasks
         self.crew = Crew(
-            agents=[S_news_scraper_agent, S_news_fact_checker_agent, content_generation_agent, editor_agent],
-            tasks=[headline_scrape_task, s_fact_chack_task, content_generation_task, editing_task],
+            agents=[S_news_scraper_agent, S_news_fact_checker_agent,
+                    content_generation_agent, editor_agent],
+            tasks=[headline_scrape_task, s_fact_chack_task,
+                   content_generation_task, editing_task],
             verbose=2,
             process=Process.sequential,
             full_output=True,
             share_crew=False,
             step_callback=lambda x: print_agent_output(x, "MasterCrew Agent")
         )
-        
-       
+
         results = self.crew.kickoff()
-        
-       
+
         return results, self.crew.usage_metrics
+
 
 if __name__ == "__main__":
     news_automation = NEWSAGENCY()
     headline_xyz = input("Enter the news headline: ")
     results, usage_metrics = news_automation.run(headline_xyz)
-    
+
     print("Crew Work Results:")
     print(results)
-    
+
     print("Usage Metrics:")
     print(usage_metrics)

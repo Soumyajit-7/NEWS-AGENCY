@@ -2,38 +2,7 @@
     {
         "event_id": "event_001",
         "verified": True,
-        "facts": [
-<<<<<<< HEAD
-            "Placement scenario in India is slowing down",
-            "Colleges are adapting to the new normal",
-            "Only 7% of Indian colleges achieve full campus placement",
-            "Private engineering colleges see 50-70% drop in placements",
-            "IITs are struggling to get students placed this season",
-            "38% of IITians across 23 campuses remain unplaced in 2024",
-            "Fewer jobs and lower salaries are being offered to students",
-            "The campus placement landscape in India is changing"
-        ],
-        "sources": [
-            "https://timesofindia.indiatimes.com/blogs/voices/placements-slowing-down-but-colleges-can-adapt-to-new-normal/",
-            "https://www.linkedin.com/pulse/placement-trap-campus-indian-universities-anil-kumar-vinayak",
-            "https://hr.economictimes.indiatimes.com/news/trends/only-7-of-indian-colleges-achieve-full-campus-placement-report/108702040",
-            "https://m.economictimes.com/jobs/fresher/private-engineering-colleges-see-50-70-drop-in-placements/articleshow/105154189.cms",
-            "https://www.firstpost.com/explainers/iits-students-placement-2024-jobs-recruitment-13756207.html",
-            "https://www.indiatoday.in/education-today/news/story/38-of-iitians-across-23-campuses-remain-unplaced-in-2024-report-2542897-2024-05-23",
-            "https://theprint.in/india/education/fewer-jobs-lower-salaries-how-global-headwinds-pandemic-hiring-swayed-indias-job-market/1988404/",
-            "https://sunstone.in/blog/how-campus-placement-landscape-in-india-is-changing-today"
-=======
-            "The placement scenario in India is undergoing a rapid transformation, driven by technological advancements, entrepreneurial spirit, and evolving job markets.",
-            "There is a reduction in placements in higher educational institutions in India, with media reports suggesting a decrease of 30-70%.",
-            "Only 7% of Indian colleges achieve full campus placement.",
-            "The gig economy has demonstrated resilience even during the pandemic, with platform workers playing an indispensable role in urban India."
-        ],
-        "sources": [
-            "https://mentormecareers.com/placement-scenario-in-india-navigating-opportunities-in-the-dynamic-job-market/",
-            "https://timesofindia.indiatimes.com/blogs/voices/placements-slowing-down-but-colleges-can-adapt-to-new-normal/",
-            "https://www.financialexpress.com/jobs-career/only-7-of-indian-colleges-achieve-full-campus-placement-unstop-2024-talent-report-3431895/",
-            "https://www.niti.gov.in/sites/default/files/2022-06/25th_June_Final_Report_27062022.pdf"
->>>>>>> 3744b6494835c3a2809e34da583f2df24f7041a5
-        ]
+        "facts": ["Hack4Bengal is a hackathon focused on encouraging innovation and creativity", "Hack4Bengal 3.0 is set to begin from 28 June 2024", "Hack4Bengal has a hybrid format, allowing participants to join in person", "Hack4Bengal has a 36-hour hacking period", "Hack4Bengal has a problem statement and offers prizes"],
+        "sources": ["https://www.hack4bengal.tech/", "https://www.telegraphindia.com/edugraph/campus/hack4bengal-3-0-is-set-to-begin-from-28-june-2024-a-promising-event-for-passionate-young-talents/cid/2029499", "https://dev.to/arup_matabber/hack4bengal-highlights-from-the-first-two-sessions-54jc", "https://www.telegraphindia.com/edugraph/campus/hack4bengal-in-association-with-cyber-security-centre-of-excellence-to-host-36-hour-hackathon/cid/1926147", "https://s2.hack4bengal.tech/"]
     }
 ]
