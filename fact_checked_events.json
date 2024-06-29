@@ -2,25 +2,7 @@
     {
         "event_id": "event_001",
         "verified": True,
-        "facts": ["Verification of news events is crucial in today's digital age", "Reliable sources are essential for fact-checking"],
-        "sources": ["Google News Initiative", "VERIFYThis.com", "DataJournalism.com", "The Associated Press", "Reuters", "AP Fact Check", "PolitiFact", "FactCheck.org"]
-    },
-    {
-        "event_id": "event_002",
-        "verified": True,
-        "facts": ["Fact-checking is a process that takes newsworthy information and checks its credibility and reliability before it is published or broadcast"],
-        "sources": ["Stony Brook Center for News Literacy", "MediaSmarts", "Quora"]
-    },
-    {
-        "event_id": "event_003",
-        "verified": True,
-        "facts": ["Reliable news sources are essential for verifying news events", "The Associated Press is a trusted source of fast, accurate, unbiased news"],
-        "sources": ["The Associated Press", "NPR", "Wall Street Journal", "YouGov", "Olympic College"]
-    },
-    {
-        "event_id": "event_004",
-        "verified": True,
-        "facts": ["Fact-checking websites like PolitiFact and FactCheck.org are essential for combating misinformation"],
-        "sources": ["PolitiFact", "FactCheck.org", "AP Fact Check", "Reuters Fact Check", "CNN Politics"]
+        "facts": ["Four members of the Hinduja family were convicted for exploiting underpaid servants at their luxurious villa in Geneva, Switzerland", "The family members were accused of seizing workers' passports, paying them in rupees, not Swiss francs, and barring them from leaving the villa", "They were sentenced to prison terms ranging from 4 to 4.5 years"],
+        "sources": ["Mint", "Hindustan Times", "ABP Live", "The Economic Times", "Deccan Chronicle", "YouTube", "Lacaveanico.fr"]
     }
 ]

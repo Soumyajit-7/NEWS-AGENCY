@@ -167,13 +167,14 @@ class NewsAgencyTasks():
                 },
                 ...
             ]""",
-            context=[self.headline_scrape_news()],
+            context=[self.headline_scrape_news(headline)],
             output_file=f"fact_checked_events.json",
-            agent=fact_checking_agent
+            agent=Search_fact_checker
+
         )
-    def generate_news_content(self):
+    def generate_news_content(self,headline):
         return Task(
-            description=f"""Write comprehensive news articles based on the verified information. 
+            description=f"""Write comprehensive news articles based on the verified information. on the headline {headline}
             Generate coherent and engaging news articles, ensuring the tone and style are appropriate for the target audience.
             Each article should be clear, concise, and provide a thorough overview of the event.
 
@@ -192,13 +193,13 @@ class NewsAgencyTasks():
                 },
                 ...
             ]""",
-            context=[self.fact_check_events()],
+            context=[self.S_fact_check_events(headline)],
             output_file=f"news_articles.json",
             agent=content_generation_agent
         )
-    def edit_news_content(self):
+    def edit_news_content(self,headline):
         return Task(
-            description=f"""Review and edit the generated articles for quality and consistency. 
+            description=f"""Review and edit the generated articles for quality and consistency. on the headline {headline}
             Check for grammar, clarity, coherence, and adherence to editorial guidelines.
             Make sure that each article is well-written, accurate, and engaging.
 
@@ -217,7 +218,7 @@ class NewsAgencyTasks():
                 },
                 ...
             ]""",
-            context=[self.generate_news_content()],
+            context=[self.generate_news_content(headline)],
             output_file=f"edited_news_articles.json",
             agent=editor_agent
         )

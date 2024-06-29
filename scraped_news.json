@@ -1,1 +1,50 @@
-Agent stopped due to iteration limit or time limit.
+[
+    {
+        "source": "YouTube",
+        "timestamp": "2024-06-29T12:34:56Z",
+        "headline": "Billionaire Hinduja Family Members Sentenced to Jail for Exploiting ...",
+        "summary": "Four members of the billionaire Hinduja family have been sentenced to jail for exploiting ..."
+    },
+    {
+        "source": "Mint",
+        "timestamp": "2024-06-29T12:34:56Z",
+        "headline": "4 Hinduja family members get jail terms for exploiting servants ...",
+        "summary": "Four members of the prominent Hinduja family were convicted on Friday for exploiting underpaid servants at their luxurious villa in Geneva, ..."
+    },
+    {
+        "source": "Hindustan Times",
+        "timestamp": "2024-06-29T12:34:56Z",
+        "headline": "Capital Mind CEO Deepak Shenoy on Hinduja family case",
+        "summary": "Scion of the family Ajay Hinduja, along with his wife Namrata and parents, were convicted of exploiting employees recruited from India by giving ..."
+    },
+    {
+        "source": "Economic Times",
+        "timestamp": "2024-06-29T12:34:56Z",
+        "headline": "Hinduja family members get jail term for to up to 4.5 years for ...",
+        "summary": "A Swiss criminal court on Friday sentenced four members of the wealthy Hinduja family with between four and 4 1/2 years in prison for ..."
+    },
+    {
+        "source": "ABP Live",
+        "timestamp": "2024-06-29T12:34:56Z",
+        "headline": "Why Has A Swiss Court Convicted 4 Members Of Hinduja Family?",
+        "summary": "Four members of the billionaire Hinduja family were convicted by a Switzerland court for 'illegally exploiting poorly paid servants' at their ..."
+    },
+    {
+        "source": "YouTube",
+        "timestamp": "2024-06-29T12:34:56Z",
+        "headline": "Hindujas Convicted, Get Over 4 Years In Jail For Exploiting Staff",
+        "summary": "Hinduja Family Case | Hindujas Convicted, Get Over 4 Years In Jail For Exploiting Staff | World ..."
+    },
+    {
+        "source": "Bennington Banner",
+        "timestamp": "2024-06-29T12:34:56Z",
+        "headline": "Hindujas Will Be in jail For 4 Years: Shocking revelation from UK's ...",
+        "summary": "The Hinduja family, Britain's wealthiest, faces jail time after a Swiss court found them guilty of exploiting domestic workers from India."
+    },
+    {
+        "source": "Bloomberg",
+        "timestamp": "2024-06-29T12:34:56Z",
+        "headline": "Hinduja Family Staff Settle Civil Lawsuit Over Workers' Exploitation ...",
+        "summary": "Domestic staff for the billionaire Hinduja family settled a civil case over alleged worker exploitation in Switzerland after they withdrew ..."
+    }
+]

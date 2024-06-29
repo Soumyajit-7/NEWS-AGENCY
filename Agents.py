@@ -38,7 +38,7 @@ class NewsAgents():
     def search_news_scraper_agent(self):
         return Agent(
             role='News Scraper Agent',
-            goal="""Take in a news from the user. \
+            goal="""Take in a news headline from the user. \
                 Collect all the data on that particular news from various sources like news websites, social media, and official press releases . \
                 Try to keep the sources trusted and reliablefrom where the news is being scraped.""",
             backstory="""You are an expert at collecting up-to-date and relevant data and information about a particular news from a \
@@ -85,6 +85,7 @@ class NewsAgents():
         return Agent(
             role='Fact-Checking Agent',
             goal="""Verify the accuracy of the news by cross-referencing with reliable sources. \
+                If the news shown from scraping doesn't align or sounds similar to the actual headline that the User input, Then show the news is fake too.
                 Search reputable databases, official statements, and trusted news sources to confirm the facts in the detected news events.""",
             backstory="""You excel at cross-referencing information and confirming the accuracy of news events by using reliable and \
                 trusted sources.""",

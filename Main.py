@@ -34,11 +34,11 @@ class NEWSAGENCY:
         
         self.crew = None
     
-    def run(self):
+    def run(self, headline : str):
         # agents
-        news_scraper_agent = self.agents.make_news_scraper_agent()
-        event_detection_agent = self.agents.make_event_detection_agent()
-        fact_checking_agent = self.agents.make_fact_checking_agent()
+        # news_scraper_agent = self.agents.make_news_scraper_agent()
+        # event_detection_agent = self.agents.make_event_detection_agent()
+        # fact_checking_agent = self.agents.make_fact_checking_agent()
         content_generation_agent = self.agents.make_content_generation_agent()
         editor_agent = self.agents.make_editor_agent()
         S_news_scraper_agent = self.agents.search_news_scraper_agent()
@@ -46,16 +46,19 @@ class NEWSAGENCY:
         
         
         # tasks
-        scraping_task = self.tasks.scrape_news()
-        detection_task = self.tasks.detect_events()
-        fact_checking_task = self.tasks.fact_check_events()
-        content_generation_task = self.tasks.generate_news_content()
-        editing_task = self.tasks.edit_news_content()
+        # scraping_task = self.tasks.scrape_news()
+        # detection_task = self.tasks.detect_events()
+        # fact_checking_task = self.tasks.fact_check_events()
+        content_generation_task = self.tasks.generate_news_content(headline)
+        editing_task = self.tasks.edit_news_content(headline)
+        headline_scrape_task = self.tasks.headline_scrape_news(headline)
+        s_fact_chack_task = self.tasks.S_fact_check_events(headline)
+
         
         # crew with agents and tasks
         self.crew = Crew(
-            agents=[news_scraper_agent, event_detection_agent, fact_checking_agent, content_generation_agent, editor_agent],
-            tasks=[scraping_task, detection_task, fact_checking_task, content_generation_task, editing_task],
+            agents=[S_news_scraper_agent, S_news_fact_checker_agent, content_generation_agent, editor_agent],
+            tasks=[headline_scrape_task, s_fact_chack_task, content_generation_task, editing_task],
             verbose=2,
             process=Process.sequential,
             full_output=True,
@@ -71,8 +74,8 @@ class NEWSAGENCY:
 
 if __name__ == "__main__":
     news_automation = NEWSAGENCY()
-    # email = input("Enter the email: ")
-    results, usage_metrics = news_automation.run()
+    headline_xyz = input("Enter the news headline: ")
+    results, usage_metrics = news_automation.run(headline_xyz)
     
     print("Crew Work Results:")
     print(results)
