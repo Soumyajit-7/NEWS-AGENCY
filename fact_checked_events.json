@@ -3,6 +3,7 @@
         "event_id": "event_001",
         "verified": True,
         "facts": [
+<<<<<<< HEAD
             "Placement scenario in India is slowing down",
             "Colleges are adapting to the new normal",
             "Only 7% of Indian colleges achieve full campus placement",
@@ -21,6 +22,18 @@
             "https://www.indiatoday.in/education-today/news/story/38-of-iitians-across-23-campuses-remain-unplaced-in-2024-report-2542897-2024-05-23",
             "https://theprint.in/india/education/fewer-jobs-lower-salaries-how-global-headwinds-pandemic-hiring-swayed-indias-job-market/1988404/",
             "https://sunstone.in/blog/how-campus-placement-landscape-in-india-is-changing-today"
+=======
+            "The placement scenario in India is undergoing a rapid transformation, driven by technological advancements, entrepreneurial spirit, and evolving job markets.",
+            "There is a reduction in placements in higher educational institutions in India, with media reports suggesting a decrease of 30-70%.",
+            "Only 7% of Indian colleges achieve full campus placement.",
+            "The gig economy has demonstrated resilience even during the pandemic, with platform workers playing an indispensable role in urban India."
+        ],
+        "sources": [
+            "https://mentormecareers.com/placement-scenario-in-india-navigating-opportunities-in-the-dynamic-job-market/",
+            "https://timesofindia.indiatimes.com/blogs/voices/placements-slowing-down-but-colleges-can-adapt-to-new-normal/",
+            "https://www.financialexpress.com/jobs-career/only-7-of-indian-colleges-achieve-full-campus-placement-unstop-2024-talent-report-3431895/",
+            "https://www.niti.gov.in/sites/default/files/2022-06/25th_June_Final_Report_27062022.pdf"
+>>>>>>> 3744b6494835c3a2809e34da583f2df24f7041a5
         ]
     }
 ]
