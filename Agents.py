@@ -85,7 +85,7 @@ class NewsAgents():
         return Agent(
             role='Fact-Checking Agent',
             goal="""Verify the accuracy of the news by cross-referencing with reliable sources. \
-                If the news shown from scraping doesn't align or sounds similar to the actual headline that the User input, Then show the news is fake too.
+            
                 Search reputable databases, official statements, and trusted news sources to confirm the facts in the detected news events.""",
             backstory="""You excel at cross-referencing information and confirming the accuracy of news events by using reliable and \
                 trusted sources.""",
@@ -102,7 +102,11 @@ class NewsAgents():
         return Agent(
             role='Content Generation Agent',
             goal="""Write news articles based on verified information. 
-            Use LLMs to generate coherent and engaging news articles, ensuring the tone and style are appropriate for the target audience.""",
+            Generate coherent and engaging news articles, ensuring the tone and style are appropriate for the target audience. \
+                - In case of a Political news, The news should Sound Politically Neutral.\
+                - In case of a Sports News, THe news should Sound Exciting and entertaining, \
+                - In case of crime news, it should sound desd serious.\
+                - Rest are as you wish""",
             backstory="""You are skilled at crafting well-written, engaging news articles that are based on verified facts and tailored to the target audience.""",
             llm=GROQ_LLM,
             verbose=True,

@@ -68,12 +68,13 @@ class NewsAgencyTasks():
             Gather the latest news articles, tweets, and other relevant information. 
             Ensure that the data collected is relevant, up-to-date, and covers a broad range of topics.
             
-            Output should include the source, timestamp, headline, and a brief summary of each news item.""",
+            Output should include the source, timestamp, headline, and a the entire news of each news item.""",
             expected_output="""A JSON file containing a list of news items. Each item should have:
             - source (e.g., 'BBC', 'Twitter')
             - timestamp (e.g., '2024-06-29T12:34:56Z')
             - headline (e.g., 'Breaking: Major Event Happens')
-            - summary (e.g., 'A brief summary of the event.')
+            - news (e.g., 'The entire news.')
+            - Genre (e.g., 'Sports')
 
             Example:
             [
@@ -81,7 +82,8 @@ class NewsAgencyTasks():
                     "source": "BBC",
                     "timestamp": "2024-06-29T12:34:56Z",
                     "headline": "Breaking: Major Event Happens",
-                    "summary": "A brief summary of the event."
+                    "news": "The entire news."
+                    "Genre": "The category it belongs to"
                 },
                 ...
             ]""",
@@ -172,11 +174,12 @@ class NewsAgencyTasks():
             agent=Search_fact_checker
 
         )
-    def generate_news_content(self,headline):
+    def generate_news_content(self, headline):
         return Task(
-            description=f"""Write comprehensive news articles based on the verified information. on the headline {headline}
+            description=f"""Write comprehensive news articles based on the verified information. on the Context.
             Generate coherent and engaging news articles, ensuring the tone and style are appropriate for the target audience.
             Each article should be clear, concise, and provide a thorough overview of the event.
+            Read the responses very carefully.
 
             Include headlines, subheadings, and paragraphs. Ensure that the articles are structured logically and are easy to read.""",
             expected_output="""A JSON file containing the generated news articles. Each article should include:
@@ -193,13 +196,13 @@ class NewsAgencyTasks():
                 },
                 ...
             ]""",
-            context=[self.S_fact_check_events(headline)],
+            context=[self.S_fact_check_events(headline),self.headline_scrape_news(headline)],
             output_file=f"news_articles.json",
             agent=content_generation_agent
         )
     def edit_news_content(self,headline):
         return Task(
-            description=f"""Review and edit the generated articles for quality and consistency. on the headline {headline}
+            description=f"""Review and edit the generated articles for quality and consistency.
             Check for grammar, clarity, coherence, and adherence to editorial guidelines.
             Make sure that each article is well-written, accurate, and engaging.
 
@@ -217,7 +220,9 @@ class NewsAgencyTasks():
                     "content": "<p>Introduction...</p><p>Details...</p><p>Conclusion...</p>"
                 },
                 ...
-            ]""",
+            ]
+            
+            generate only one response.""",
             context=[self.generate_news_content(headline)],
             output_file=f"edited_news_articles.json",
             agent=editor_agent
